@@ -1,15 +1,14 @@
 {
   "include": ["./ts-src/**/*.ts"],
+  "files": ["./ts-src/ts-patch/yargs.d.ts"],
   "compilerOptions": {
-    "typeRoots":[
-      "./node_modules/@types",
-      "./ts-src/ts-patch/"
-    ],
+    "typeRoots": ["./node_modules/@types", "./ts-src/ts-patch/"],
     "allowJs": true,
     "module": "commonjs",
     "outDir": "js-lib",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "target":"ES2017"
+    "target": "ES2017",
+    "resolveJsonModule": true
   }
 }

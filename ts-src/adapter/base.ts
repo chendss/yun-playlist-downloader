@@ -12,7 +12,7 @@ export default class BaseAdapter {
    * get title for a page
    */
 
-  getTitle($: CheerioAPI) {
+  getTitle($: CheerioAPI): string {
     throw new Error(NOT_IMPLEMENTED)
   }
 
@@ -20,7 +20,7 @@ export default class BaseAdapter {
    * get detail
    */
 
-  getDetail($: CheerioAPI, url: string, quality: number) {
+  getDetail($: CheerioAPI, url: string, quality: number): any[] {
     throw new Error(NOT_IMPLEMENTED)
   }
 

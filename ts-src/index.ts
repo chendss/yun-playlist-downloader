@@ -8,10 +8,13 @@ import Debug from 'debug'
 import getPlayurl from './api/playurl'
 import Request from 'request'
 import RequestPromise from 'request-promise'
-import request = require('request')
-import requestPromise = require('request-promise')
 
 const debug = Debug('yun:index')
+
+import yargs from 'yargs'
+/// <reference path="ts-patch/yargs.d.ts">
+import './ts-patch/yargs'
+const x: yargs.Choices = [1, 2, 3]
 
 /**
  * 下载特殊headers
@@ -161,7 +164,7 @@ export async function tryDownloadSong(
 ) {
   // 不用下载
   const need = await needDownload(url, filename, skipExists)
-  if (!needDownload) {
+  if (!need) {
     console.log(
       `${symbols.success} ${song.index}/${totalLength} 下载跳过 ${filename}`
     )
@@ -224,6 +227,7 @@ import AlbumAdapter from './adapter/album'
 import PlaylistAdapter from './adapter/playlist'
 import BaseAdapter from './adapter/base'
 import { url } from 'inspector'
+// import yargs = require('yargs')
 
 export function getAdapter(url: string) {
   const type = exports.getType(url)
